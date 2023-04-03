@@ -19,7 +19,7 @@ const StoryCard = ({ title, description, index }) => {
 
 const Story = () => {
   return (
-    <section className="story sm:mb-[131px] mb-[60px] relative">
+    <section className="story sm:mb-[131px] mb-[60px] relative" id="story">
       <div className="container">
         <div className="flex lg:flex-row flex-col justify-between story__inner relative z-[1]">
           <div className="lg:max-w-[635px] max-w-none lg:pt-[65px] pt-0 lg:mb-0 mb-[40px] lg:block flex flex-col items-center lg:text-left text-center">

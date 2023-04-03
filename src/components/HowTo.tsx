@@ -19,7 +19,7 @@ const HowToCard = ({ index, text, icon }) => {
 
 const HowTo = () => {
   return (
-    <section className="mb-[60px]">
+    <section className="mb-[60px]" id="howto">
       <div className="container">
         <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] sm:mb-[60px] mb-[30px] text-center">
           HOW TO <span className="text-accent">NFTALIEN</span> WORK

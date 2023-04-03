@@ -20,7 +20,7 @@ const CollectionCard = ({ image, title }) => {
 
 const Collection = () => {
   return (
-    <section className="sm:mb-[139px] mb-[60px] relative z-[2]">
+    <section className="sm:mb-[139px] mb-[60px] relative z-[2]" id="collection">
       <div className="container">
         <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] sm:mb-[60px] mb-[30px] lg:text-left text-center">
           HOT COLLECTION
