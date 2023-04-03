@@ -1,6 +1,6 @@
 import { collectionItems } from "../constants";
 
-const CollectionCard = ({ image, title }) => {
+const CollectionCard = ({ image, title }: { image: string; title: string }) => {
   return (
     <div className="p-[20px] bg-secondary triangle-hover">
       <img

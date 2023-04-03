@@ -1,6 +1,6 @@
 import { partnerItems } from "../constants";
 
-const PartnerCard = ({ logo, name }) => {
+const PartnerCard = ({ logo, name }: { logo: string; name: string }) => {
   return (
     <div className="partner-card flex justify-center items-center sm:py-[20px] sm:px-[24px] py-[10px] px-[12px]">
       <img

@@ -2,6 +2,16 @@ import { useState } from "react";
 import { navLinks } from "../constants";
 import Button from "./Button";
 import logo from "../assets/images/logo.svg";
+import { motion } from "framer-motion";
+
+const variants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 },
+  },
+  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+};
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -21,7 +31,7 @@ const Navbar = () => {
           </a>
           <nav className="lg:block hidden">
             <ul className="flex gap-[32px]">
-              {navLinks.map(({ id, title }) => (
+              {navLinks.map(({ id, title }: { id: string; title: string }) => (
                 <li key={id}>
                   <a
                     className="text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
@@ -54,20 +64,26 @@ const Navbar = () => {
               text="connect"
             />
           </div>
-          {toggle && (
-            <div className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primary px-[15px] pb-[15px]">
-              <nav>
+          <motion.nav
+            animate={toggle ? "open" : "closed"}
+            variants={variants}
+            className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primary px-[15px] pb-[15px]"
+          >
+            {toggle && (
+              <>
                 <ul className="flex flex-col gap-[32px] mb-[32px]">
-                  {navLinks.map(({ id, title }) => (
-                    <li key={id}>
-                      <a
-                        className="text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
-                        href={`#${id}`}
-                      >
-                        {title}
-                      </a>
-                    </li>
-                  ))}
+                  {navLinks.map(
+                    ({ id, title }: { id: string; title: string }) => (
+                      <li key={id}>
+                        <a
+                          className="text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
+                          href={`#${id}`}
+                        >
+                          {title}
+                        </a>
+                      </li>
+                    )
+                  )}
                 </ul>
                 <div className="flex flex-wrap gap-[20px]">
                   <Button classes="btn--icon btn--discord" text="discord" />
@@ -76,9 +92,9 @@ const Navbar = () => {
                     text="connect"
                   />
                 </div>
-              </nav>
-            </div>
-          )}
+              </>
+            )}
+          </motion.nav>
         </div>
       </div>
     </header>

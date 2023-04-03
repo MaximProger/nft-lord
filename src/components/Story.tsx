@@ -1,7 +1,15 @@
 import { storyItems } from "../constants";
 import Button from "./Button";
 
-const StoryCard = ({ title, description, index }) => {
+const StoryCard = ({
+  title,
+  description,
+  index,
+}: {
+  title: string;
+  description: string;
+  index: number;
+}) => {
   return (
     <div className="story-card triangle-hover h-[252px] max-w-[330px] bg-secondary flex flex-col items-center justify-end text-center p-[30px]">
       <h4
