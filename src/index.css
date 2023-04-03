@@ -5,9 +5,100 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #040b11;
+  --secondary: #141b22;
+  --accent: #21e786;
+  --accent-darken: #14be6b;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1440px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.theme-btn:before {
+  width: 24px;
+  height: 24px;
+
+  content: "";
+
+  background: url("./assets/images/icons/sun.svg") no-repeat center;
+}
+
+.btn {
+  font-family: "Bakbak One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 12px 24px;
+
+  text-transform: uppercase;
+  transition: all 0.2s ease-out;
+
+  color: #fff;
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  background-color: transparent;
+  color: #fff;
+}
+
+.btn--outline {
+  border-color: var(--accent);
+  background-color: transparent;
+}
+
+.btn--outline:hover {
+  border-color: var(--accent);
+  background-color: var(--accent);
+  color: var(--secondary);
+}
+
+.btn--green {
+  border-color: var(--accent);
+  background-color: var(--accent);
+  color: var(--secondary);
+}
+
+.btn--green:hover {
+  border-color: var(--accent-darken);
+  background-color: var(--accent-darken);
+  color: var(--secondary);
+}
+
+.btn--icon::before {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  margin-right: 8px;
+
+  content: "";
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.btn--discord::before {
+  background-image: url("./assets/images/icons/discord.svg");
+}
+
+.btn--wallet::before {
+  background-image: url("./assets/images/icons/wallet.svg");
+}
+
+.hero-section {
+  background: url("./assets/images/background/hero.png") no-repeat center top /
+    cover;
 }
