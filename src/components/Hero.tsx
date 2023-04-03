@@ -2,10 +2,10 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <section className="hero-section pt-[108px] min-h-[940px] flex">
+    <section className="hero-section pt-[108px] min-h-[940px] flex mb-[60px]">
       <div className="container">
         <div className="flex flex-col justify-end items-center h-[100%] pb-[83px] text-center">
-          <h1 className="text-white font-bakbakOne text-[72px] leading-[80px] mb-[20px]">
+          <h1 className="text-fontColor font-bakbakOne text-[72px] leading-[80px] mb-[20px]">
             EXPLORE NFT COLLECTION
           </h1>
           <p className="mb-[48px]">

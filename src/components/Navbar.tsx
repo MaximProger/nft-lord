@@ -15,7 +15,7 @@ const Navbar = () => {
               {navLinks.map(({ id, title }) => (
                 <li key={id}>
                   <a
-                    className="text-white hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
+                    className="text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
                     href={`#${id}`}
                   >
                     {title}
