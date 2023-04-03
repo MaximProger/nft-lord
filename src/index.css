@@ -12,6 +12,10 @@
   --accent-darken: #14be6b;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1440px;
@@ -34,9 +38,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-
-  display: flex;
-  align-items: center;
 
   padding: 12px 24px;
 
@@ -139,4 +140,105 @@
 .triangle-hover:hover:before,
 .triangle-hover:hover:after {
   opacity: 1;
+}
+
+.text-shadow {
+  text-shadow: 0px 4px 16px rgba(255, 255, 255, 0.4);
+}
+
+.story__inner::before,
+.story__inner::after {
+  position: absolute;
+  z-index: -1;
+
+  width: 184px;
+  height: 184px;
+
+  content: "";
+
+  background: url("./assets/images/background/star.svg") no-repeat center /
+    contain;
+}
+
+.story__inner::before {
+  left: 23px;
+  top: -82px;
+
+  width: 277px;
+  height: 277px;
+
+  transform: rotate(-63.1deg);
+}
+
+.story__inner::after {
+  right: -187px;
+  bottom: -60px;
+}
+
+.story-card__title {
+  position: relative;
+  z-index: 1;
+}
+
+.story-card__title:after {
+  font-family: "Bakbak One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 96px;
+
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  z-index: -1;
+
+  content: "0" attr(data-story-number);
+
+  transform: translateX(-50%);
+  text-transform: capitalize;
+  opacity: 0.3;
+
+  color: var(--accent);
+}
+
+.partner-section::before {
+  position: absolute;
+  left: -208px;
+  bottom: -50px;
+
+  width: 347.35px;
+  height: 347.35px;
+
+  content: "";
+
+  background: url("./assets/images/background/star.svg") no-repeat center /
+    contain;
+}
+
+.partner-card:where(
+    :nth-child(2),
+    :nth-child(4),
+    :nth-child(6),
+    :nth-child(7),
+    :nth-child(9),
+    :nth-child(11),
+    :nth-child(14),
+    :nth-child(16),
+    :nth-child(18),
+
+  ) {
+  background-color: var(--secondary);
+}
+
+.menu-btn:before {
+  width: 24px;
+  height: 24px;
+
+  content: "";
+
+  background: url("./assets/images/icons/open.svg") no-repeat center;
+}
+
+.menu-btn--close::before {
+  background-image: url("./assets/images/icons/close.svg");
 }

@@ -11,9 +11,9 @@ const CollectionCard = ({ image, title }) => {
         height={297}
         loading="lazy"
       />
-      <div className="font-bakbakOne text-[20px] leading-[28px] uppercase">
+      <h4 className="font-bakbakOne text-[20px] leading-[28px] uppercase">
         {title}
-      </div>
+      </h4>
     </div>
   );
 };
@@ -22,12 +22,12 @@ const Collection = () => {
   return (
     <section className="mb-[139px]">
       <div className="container">
-        <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] mb-[60px]">
+        <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] mb-[60px] lg:text-left text-center">
           HOT COLLECTION
         </h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
-          {collectionItems.map((item) => (
-            <CollectionCard {...item} />
+          {collectionItems.map((item, index) => (
+            <CollectionCard key={index} {...item} />
           ))}
         </div>
       </div>
