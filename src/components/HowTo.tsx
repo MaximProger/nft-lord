@@ -26,7 +26,7 @@ const HowTo = () => {
         </h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
           {howToItems.map((item, index) => (
-            <HowToCard key={index} text={item.text} icon={item.icon} />
+            <HowToCard key={item.id} text={item.text} icon={item.icon} />
           ))}
         </div>
       </div>

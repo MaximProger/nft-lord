@@ -105,6 +105,8 @@
 
 .triangle-hover {
   position: relative;
+
+  cursor: pointer;
 }
 
 .triangle-hover::before,
