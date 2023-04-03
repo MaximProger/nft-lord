@@ -7,11 +7,17 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <header className="fixed z-10 top-0 left-0 right-0 bg-primary pt-[30px] pb-[30px]">
+    <header className="fixed z-10 top-0 left-0 right-0 bg-primary sm:py-[30px] py-[15px]">
       <div className="container">
         <div className="flex items-center justify-between">
           <a href="/" className="logo">
-            <img src={logo} alt="NFTALIEN" width="196" height="42" />
+            <img
+              className="sm:w-[196px] sm:h-[42px] w-[154px] h-[33px]"
+              src={logo}
+              alt="NFTALIEN"
+              width="196"
+              height="42"
+            />
           </a>
           <nav className="lg:block hidden">
             <ul className="flex gap-[32px]">
@@ -49,7 +55,7 @@ const Navbar = () => {
             />
           </div>
           {toggle && (
-            <div className="lg:hidden fixed left-0 right-0 top-[108px] bg-primary px-[15px] pb-[15px]">
+            <div className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primary px-[15px] pb-[15px]">
               <nav>
                 <ul className="flex flex-col gap-[32px] mb-[32px]">
                   {navLinks.map(({ id, title }) => (
@@ -63,7 +69,7 @@ const Navbar = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="flex gap-[20px]">
+                <div className="flex flex-wrap gap-[20px]">
                   <Button classes="btn--icon btn--discord" text="discord" />
                   <Button
                     classes="btn--green btn--icon btn--wallet"

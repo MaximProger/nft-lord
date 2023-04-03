@@ -20,9 +20,9 @@ const CollectionCard = ({ image, title }) => {
 
 const Collection = () => {
   return (
-    <section className="mb-[139px]">
+    <section className="sm:mb-[139px] mb-[60px] relative z-[2]">
       <div className="container">
-        <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] mb-[60px] lg:text-left text-center">
+        <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] sm:mb-[60px] mb-[30px] lg:text-left text-center">
           HOT COLLECTION
         </h2>
         <div className="flex flex-wrap justify-center gap-[30px]">

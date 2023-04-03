@@ -19,7 +19,7 @@ const StoryCard = ({ title, description, index }) => {
 
 const Story = () => {
   return (
-    <section className="story mb-[131px] relative">
+    <section className="story sm:mb-[131px] mb-[60px] relative">
       <div className="container">
         <div className="flex lg:flex-row flex-col justify-between story__inner relative z-[1]">
           <div className="lg:max-w-[635px] max-w-none lg:pt-[65px] pt-0 lg:mb-0 mb-[40px] lg:block flex flex-col items-center lg:text-left text-center">
@@ -31,7 +31,7 @@ const Story = () => {
               utilities they can use in their current everyday life. Not in a
               hypothetical future.
             </p>
-            <div className="flex gap-[60px] mb-[40px]">
+            <div className="flex flex-wrap sm:justify-start justify-center gap-[60px] mb-[40px]">
               <div className="flex flex-col items-center justify-center font-bakbakOne text-[20px] leading-[28px]">
                 <p className="mb-[8px] text-tertiary">Total Iteam</p>
                 <p className="text-[56px] leading-[68px] font-bakbakOne text-shadow">

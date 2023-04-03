@@ -2,10 +2,10 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <section className="hero-section pt-[108px] min-h-[940px] flex mb-[60px]">
+    <section className="hero-section pt-[108px] sm:min-h-[940px] min-h-[300px] flex sm:mb-[60px] mb-[30px]">
       <div className="container">
-        <div className="flex flex-col justify-end items-center h-[100%] pb-[83px] text-center">
-          <h1 className="text-fontColor font-bakbakOne text-[72px] leading-[80px] mb-[20px]">
+        <div className="flex flex-col justify-end items-center h-[100%] sm:pb-[83px] pb-[40px] text-center">
+          <h1 className="text-fontColor font-bakbakOne sm:text-[72px] text-[56px] sm:leading-[80px] leading-[64px] mb-[20px]">
             EXPLORE NFT COLLECTION
           </h1>
           <p className="mb-[48px]">
@@ -14,7 +14,7 @@ const Hero = () => {
             <br />
             metaverse-ready, and designed to benefit their holders.
           </p>
-          <div className="flex justify-center gap-[24px]">
+          <div className="flex flex-wrap justify-center gap-[24px]">
             <Button classes="btn--green" text="connect wallet" />
             <Button classes="btn--outline" text="whitelist now" />
           </div>
