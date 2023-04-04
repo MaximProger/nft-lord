@@ -14,7 +14,7 @@ const CollectionCard = ({
 }) => {
   return (
     <motion.div
-      variants={fadeIn("up", "spring", index * 0.15, 0.75)}
+      variants={fadeIn("up", "spring", index * 0.15, 0.55)}
       className="p-[20px] bg-secondary triangle-hover"
     >
       <img
