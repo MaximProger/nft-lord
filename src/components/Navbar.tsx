@@ -5,10 +5,10 @@ import logo from "../assets/images/logo.svg";
 import logoLight from "../assets/images/logo--light.svg";
 import { motion } from "framer-motion";
 import { ThemeContext } from "../contexts/ThemeContext";
-import { OnClickProps } from "../models/models";
+import { ButtonProps } from "../models/models";
 import { mobileMenuVariant } from "../utils/motion";
 
-const Navbar = ({ onChangeTheme }: { onChangeTheme: OnClickProps }) => {
+const Navbar = ({ onChangeTheme }: ButtonProps) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const theme = useContext(ThemeContext);
@@ -50,7 +50,7 @@ const Navbar = ({ onChangeTheme }: { onChangeTheme: OnClickProps }) => {
           <div className="flex gap-[20px]">
             <button
               type="button"
-              onClick={onChangeTheme}
+              onClick={() => onChangeTheme()}
               className="theme-btn rounded-full w-[48px] h-[48px] bg-secondary flex items-center justify-center transition ease-linear border-[1px] border-solid border-transparent  hover:border-accent"
             ></button>
             <button

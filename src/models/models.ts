@@ -26,9 +26,8 @@ export interface IPartnerItem {
   name: String,
   logo: String
 }
+export interface ButtonProps {
+  onChangeTheme: () => void;
+}
 
 export type ThemeContextType = string;
-
-export type OnClickProps = {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-};
