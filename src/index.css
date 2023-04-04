@@ -285,14 +285,14 @@
       :nth-child(18),
 
     ) {
-    background-color: var(--secondary);
+    background-color: var(--primary) !important;
   }
 
   .partner-card:is(:nth-child(4n + 1), :nth-child(4n + 4)) {
-    background-color: var(--secondary);
+    background-color: var(--secondary) !important;
   }
 
   .light .partner-card:is(:nth-child(4n + 1), :nth-child(4n + 4)) {
-    background-color: var(--accent);
+    background-color: var(--accent) !important;
   }
 }

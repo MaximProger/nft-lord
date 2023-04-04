@@ -69,38 +69,33 @@ const Navbar = ({ onChangeTheme }: { onChangeTheme: OnClickProps }) => {
               text="connect"
             />
           </div>
-          <motion.nav
-            animate={toggle ? "open" : "closed"}
-            variants={variants}
-            className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primaryLight dark:bg-primary px-[15px] pb-[15px]"
-          >
-            {toggle && (
-              <>
-                <ul className="flex flex-col gap-[32px] mb-[32px]">
-                  {navLinks.map(
-                    ({ id, title }: { id: string; title: string }) => (
-                      <li key={id}>
-                        <a
-                          onClick={() => setToggle(!toggle)}
-                          className="text-primary dark:text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
-                          href={`#${id}`}
-                        >
-                          {title}
-                        </a>
-                      </li>
-                    )
-                  )}
-                </ul>
-                <div className="flex flex-wrap gap-[20px]">
-                  <Button classes="btn--icon btn--discord" text="discord" />
-                  <Button
-                    classes="btn--green btn--icon btn--wallet"
-                    text="connect"
-                  />
-                </div>
-              </>
-            )}
-          </motion.nav>
+
+          {toggle && (
+            <div className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primaryLight dark:bg-primary px-[15px] pb-[15px]">
+              <ul className="flex flex-col gap-[32px] mb-[32px]">
+                {navLinks.map(
+                  ({ id, title }: { id: string; title: string }) => (
+                    <li key={id}>
+                      <a
+                        onClick={() => setToggle(!toggle)}
+                        className="text-primary dark:text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
+                        href={`#${id}`}
+                      >
+                        {title}
+                      </a>
+                    </li>
+                  )
+                )}
+              </ul>
+              <div className="flex flex-wrap gap-[20px]">
+                <Button classes="btn--icon btn--discord" text="discord" />
+                <Button
+                  classes="btn--green btn--icon btn--wallet"
+                  text="connect"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </header>

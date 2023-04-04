@@ -31,6 +31,15 @@ const textVariants = {
   },
 };
 
+const variants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 },
+  },
+  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+};
+
 const HowToCard = ({
   index,
   text,
@@ -45,10 +54,7 @@ const HowToCard = ({
       options={tiltOptions}
       className="triangle-hover bg-secondary sm:min-w-[330px] w-[100%] max-w-[330px] h-[210px] py-[30px] px-[20px]"
     >
-      <motion.div
-        variants={fadeIn("up", "spring", 0.5 * index, 0.75)}
-        className="flex flex-col items-center justify-center "
-      >
+      <div className="flex flex-col items-center justify-center ">
         <div
           className="w-[92px] h-[72px] object-contain mb-[20px] bg-no-repeat bg-center"
           style={{ backgroundImage: `url(${icon})` }}
@@ -59,7 +65,7 @@ const HowToCard = ({
         <h3 className="font-bakbakOne text-fontColor text-[24px] leading-[32px] text-center capitalize">
           {text}
         </h3>
-      </motion.div>
+      </div>
     </Tilt>
   );
 };
@@ -68,13 +74,9 @@ const HowTo = () => {
   return (
     <section className="mb-[60px]" id="howto">
       <div className="container">
-        <motion.div variants={textVariants}>
-          <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] sm:mb-[60px] mb-[30px] text-center">
-            HOW TO <span className="text-accent">NFTALIEN</span> WORK
-          </h2>
-        </motion.div>
-
-        <motion.div />
+        <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] sm:mb-[60px] mb-[30px] text-center">
+          HOW TO <span className="text-accent">NFTALIEN</span> WORK
+        </h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
           {howToItems.map((item, index) => (
             <HowToCard

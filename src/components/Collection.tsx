@@ -1,6 +1,4 @@
 import { collectionItems } from "../constants";
-import { motion } from "framer-motion";
-import { fadeIn } from "../utils/motion";
 
 const CollectionCard = ({
   image,
@@ -12,10 +10,7 @@ const CollectionCard = ({
   index: number;
 }) => {
   return (
-    <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-      className="p-[20px] bg-secondary triangle-hover"
-    >
+    <div className="p-[20px] bg-secondary triangle-hover">
       <img
         className="object-contain block max-w-[100%] h-auto mb-[13px]"
         src={image}
@@ -27,7 +22,7 @@ const CollectionCard = ({
       <h4 className="font-bakbakOne text-fontColor text-[20px] leading-[28px] uppercase">
         {title}
       </h4>
-    </motion.div>
+    </div>
   );
 };
 
