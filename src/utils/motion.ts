@@ -1,3 +1,12 @@
+export const mobileMenuVariant = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 },
+  },
+  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+};
+
 export const textVariant = (delay: number) => {
   return {
     hidden: {
@@ -75,12 +84,12 @@ export const slideIn = (direction: string, type: string, delay: number, duration
   };
 };
 
-export const staggerContainer = (staggerChildren: number, delayChildren: number) => {
+export const staggerContainer = (staggerChildren: number, delayChildren: number ) => {
   return {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: staggerChildren,
+        staggerChildren: 0,
         delayChildren: delayChildren || 0,
       },
     },

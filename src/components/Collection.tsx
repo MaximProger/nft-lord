@@ -1,4 +1,7 @@
 import { collectionItems } from "../constants";
+import SectionWrapper from "../hoc/SectionWrapper";
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../utils/motion";
 
 const CollectionCard = ({
   image,
@@ -10,7 +13,10 @@ const CollectionCard = ({
   index: number;
 }) => {
   return (
-    <div className="p-[20px] bg-secondary triangle-hover">
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.15, 0.75)}
+      className="p-[20px] bg-secondary triangle-hover"
+    >
       <img
         className="object-contain block max-w-[100%] h-auto mb-[13px]"
         src={image}
@@ -22,25 +28,30 @@ const CollectionCard = ({
       <h4 className="font-bakbakOne text-fontColor text-[20px] leading-[28px] uppercase">
         {title}
       </h4>
-    </div>
+    </motion.div>
   );
 };
 
 const Collection = () => {
   return (
-    <section className="sm:mb-[139px] mb-[60px] relative z-[2]" id="collection">
-      <div className="container">
-        <h2 className="font-bakbakOne text-[44px] uppercase leading-[56px] sm:mb-[60px] mb-[30px] lg:text-left text-center">
-          HOT COLLECTION
-        </h2>
-        <div className="flex flex-wrap justify-center gap-[30px]">
-          {collectionItems.map((item, index) => (
-            <CollectionCard key={index} index={index} {...item} />
-          ))}
-        </div>
+    <>
+      <motion.h2
+        variants={textVariant(0)}
+        className="font-bakbakOne text-[44px] uppercase leading-[56px] sm:mb-[60px] mb-[30px] lg:text-left text-center"
+      >
+        HOT COLLECTION
+      </motion.h2>
+      <div className="flex flex-wrap justify-center gap-[30px]">
+        {collectionItems.map((item, index) => (
+          <CollectionCard key={index} index={index} {...item} />
+        ))}
       </div>
-    </section>
+    </>
   );
 };
 
-export default Collection;
+export default SectionWrapper(
+  Collection,
+  "collection",
+  "sm:mb-[139px] mb-[60px] relative z-[2]"
+);

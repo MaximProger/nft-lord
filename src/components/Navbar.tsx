@@ -6,17 +6,10 @@ import logoLight from "../assets/images/logo--light.svg";
 import { motion } from "framer-motion";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { OnClickProps } from "../models/models";
-
-const variants = {
-  open: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 },
-  },
-  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
-};
+import { mobileMenuVariant } from "../utils/motion";
 
 const Navbar = ({ onChangeTheme }: { onChangeTheme: OnClickProps }) => {
+  const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const theme = useContext(ThemeContext);
 
@@ -38,8 +31,15 @@ const Navbar = ({ onChangeTheme }: { onChangeTheme: OnClickProps }) => {
               {navLinks.map(({ id, title }: { id: string; title: string }) => (
                 <li key={id}>
                   <a
-                    className="text-primary dark:text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
+                    className={`${
+                      active === title
+                        ? "text-accent"
+                        : "text-primary dark:text-fontColor"
+                    }  hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear`}
                     href={`#${id}`}
+                    onClick={() => {
+                      setActive(title);
+                    }}
                   >
                     {title}
                   </a>
@@ -70,32 +70,40 @@ const Navbar = ({ onChangeTheme }: { onChangeTheme: OnClickProps }) => {
             />
           </div>
 
-          {toggle && (
-            <div className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primaryLight dark:bg-primary px-[15px] pb-[15px]">
-              <ul className="flex flex-col gap-[32px] mb-[32px]">
-                {navLinks.map(
-                  ({ id, title }: { id: string; title: string }) => (
-                    <li key={id}>
-                      <a
-                        onClick={() => setToggle(!toggle)}
-                        className="text-primary dark:text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
-                        href={`#${id}`}
-                      >
-                        {title}
-                      </a>
-                    </li>
-                  )
-                )}
-              </ul>
-              <div className="flex flex-wrap gap-[20px]">
-                <Button classes="btn--icon btn--discord" text="discord" />
-                <Button
-                  classes="btn--green btn--icon btn--wallet"
-                  text="connect"
-                />
-              </div>
+          <motion.div
+            initial="closed"
+            variants={mobileMenuVariant}
+            animate={toggle ? "open" : "closed"}
+            className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primaryLight dark:bg-primary px-[15px] pb-[15px]"
+          >
+            <ul className="flex flex-col gap-[32px] mb-[32px]">
+              {navLinks.map(({ id, title }: { id: string; title: string }) => (
+                <li key={id}>
+                  <a
+                    onClick={() => {
+                      setActive(title);
+                      setToggle(!toggle);
+                    }}
+                    className={`${
+                      active === title
+                        ? "text-accent"
+                        : "text-primary dark:text-fontColor"
+                    }  hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear`}
+                    href={`#${id}`}
+                  >
+                    {title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-[20px]">
+              <Button classes="btn--icon btn--discord" text="discord" />
+              <Button
+                classes="btn--green btn--icon btn--wallet"
+                text="connect"
+              />
             </div>
-          )}
+          </motion.div>
         </div>
       </div>
     </header>
