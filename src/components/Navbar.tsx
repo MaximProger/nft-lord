@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { navLinks } from "../constants";
 import Button from "./Button";
 import logo from "../assets/images/logo.svg";
+import logoLight from "../assets/images/logo--light.svg";
 import { motion } from "framer-motion";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { OnClickProps } from "../models/models";
 
 const variants = {
   open: {
@@ -13,17 +16,18 @@ const variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
-const Navbar = () => {
+const Navbar = ({ onChangeTheme }: { onChangeTheme: OnClickProps }) => {
   const [toggle, setToggle] = useState(false);
+  const theme = useContext(ThemeContext);
 
   return (
-    <header className="fixed z-10 top-0 left-0 right-0 bg-primary sm:py-[30px] py-[15px]">
+    <header className="fixed z-10 top-0 left-0 right-0 bg-primaryLight dark:bg-primary sm:py-[30px] py-[15px]">
       <div className="container">
         <div className="flex items-center justify-between">
           <a href="/" className="logo">
             <img
               className="sm:w-[196px] sm:h-[42px] w-[154px] h-[33px]"
-              src={logo}
+              src={theme === "light" ? logoLight : logo}
               alt="NFTALIEN"
               width="196"
               height="42"
@@ -34,7 +38,7 @@ const Navbar = () => {
               {navLinks.map(({ id, title }: { id: string; title: string }) => (
                 <li key={id}>
                   <a
-                    className="text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
+                    className="text-primary dark:text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
                     href={`#${id}`}
                   >
                     {title}
@@ -46,6 +50,7 @@ const Navbar = () => {
           <div className="flex gap-[20px]">
             <button
               type="button"
+              onClick={onChangeTheme}
               className="theme-btn rounded-full w-[48px] h-[48px] bg-secondary flex items-center justify-center transition ease-linear border-[1px] border-solid border-transparent  hover:border-accent"
             ></button>
             <button
@@ -67,7 +72,7 @@ const Navbar = () => {
           <motion.nav
             animate={toggle ? "open" : "closed"}
             variants={variants}
-            className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primary px-[15px] pb-[15px]"
+            className="lg:hidden fixed left-0 right-0 sm:top-[108px] top-[78px] bg-primaryLight dark:bg-primary px-[15px] pb-[15px]"
           >
             {toggle && (
               <>
@@ -76,7 +81,8 @@ const Navbar = () => {
                     ({ id, title }: { id: string; title: string }) => (
                       <li key={id}>
                         <a
-                          className="text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
+                          onClick={() => setToggle(!toggle)}
+                          className="text-primary dark:text-fontColor hover:text-accent font-bakbakOne uppercase text-base transition-colors easy-linear"
                           href={`#${id}`}
                         >
                           {title}

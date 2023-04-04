@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -10,6 +11,8 @@ module.exports = {
         accent: "#21E786",
         accentDarken: "#14be6b",
         fontColor: "#ffffff",
+        primaryLight: "#ffffff",
+        secondaryLight: "#FCECD6",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

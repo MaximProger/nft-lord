@@ -56,6 +56,10 @@
   color: #fff;
 }
 
+.light .btn:not(.btn--green, .btn--outline):hover {
+  background-color: var(--secondary);
+}
+
 .btn--outline {
   border-color: var(--accent);
   background-color: transparent;
@@ -216,7 +220,11 @@
     contain;
 }
 
-.partner-card:where(
+.partner-card {
+  background-color: var(--primary);
+}
+
+.partner-card:is(
     :nth-child(2),
     :nth-child(4),
     :nth-child(6),
@@ -229,6 +237,22 @@
 
   ) {
   background-color: var(--secondary);
+}
+
+.light
+  .partner-card:is(
+    :nth-child(2),
+    :nth-child(4),
+    :nth-child(6),
+    :nth-child(7),
+    :nth-child(9),
+    :nth-child(11),
+    :nth-child(14),
+    :nth-child(16),
+    :nth-child(18),
+
+  ) {
+  background-color: var(--accent);
 }
 
 .menu-btn:before {
@@ -249,7 +273,7 @@
     scroll-margin-top: 78px;
   }
 
-  .partner-card:where(
+  .partner-card:is(
       :nth-child(2),
       :nth-child(4),
       :nth-child(6),
@@ -261,10 +285,14 @@
       :nth-child(18),
 
     ) {
-    background-color: transparent;
+    background-color: var(--secondary);
   }
 
-  .partner-card:where(:nth-child(4n + 1), :nth-child(4n + 4)) {
+  .partner-card:is(:nth-child(4n + 1), :nth-child(4n + 4)) {
     background-color: var(--secondary);
+  }
+
+  .light .partner-card:is(:nth-child(4n + 1), :nth-child(4n + 4)) {
+    background-color: var(--accent);
   }
 }

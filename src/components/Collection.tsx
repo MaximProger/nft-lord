@@ -1,8 +1,21 @@
 import { collectionItems } from "../constants";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/motion";
 
-const CollectionCard = ({ image, title }: { image: string; title: string }) => {
+const CollectionCard = ({
+  image,
+  title,
+  index,
+}: {
+  image: string;
+  title: string;
+  index: number;
+}) => {
   return (
-    <div className="p-[20px] bg-secondary triangle-hover">
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      className="p-[20px] bg-secondary triangle-hover"
+    >
       <img
         className="object-contain block max-w-[100%] h-auto mb-[13px]"
         src={image}
@@ -11,10 +24,10 @@ const CollectionCard = ({ image, title }: { image: string; title: string }) => {
         height={297}
         loading="lazy"
       />
-      <h4 className="font-bakbakOne text-[20px] leading-[28px] uppercase">
+      <h4 className="font-bakbakOne text-fontColor text-[20px] leading-[28px] uppercase">
         {title}
       </h4>
-    </div>
+    </motion.div>
   );
 };
 
@@ -27,7 +40,7 @@ const Collection = () => {
         </h2>
         <div className="flex flex-wrap justify-center gap-[30px]">
           {collectionItems.map((item, index) => (
-            <CollectionCard key={index} {...item} />
+            <CollectionCard key={index} index={index} {...item} />
           ))}
         </div>
       </div>

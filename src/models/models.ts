@@ -26,3 +26,9 @@ export interface IPartnerItem {
   name: String,
   logo: String
 }
+
+export type ThemeContextType = string;
+
+export type OnClickProps = {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+};

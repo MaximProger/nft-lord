@@ -11,7 +11,7 @@ const Hero = () => {
           <h1 className="text-fontColor font-bakbakOne sm:text-[72px] text-[56px] sm:leading-[80px] leading-[64px] mb-[20px]">
             EXPLORE NFT COLLECTION
           </h1>
-          <p className="mb-[48px]">
+          <p className="mb-[48px] text-fontColor">
             A collection of 2525 highly-fashionable NFTs on the ETH Blockchain.
             Unique,
             <br />
